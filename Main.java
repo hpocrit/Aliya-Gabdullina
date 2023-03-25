@@ -5,6 +5,7 @@ public class Main {
 
         int[] array1 = new int[100];
 
+
         for (int i = 0; i < array1.length; i++) {
             array1[i] = (int) (Math.random() * 1000);
         }
