@@ -11,9 +11,9 @@ public class Tests {
             for (int i = 0; i < array.length; i++) {
                 array[i] = (int) (Math.random() * 1000);
             }
-            StoogeSort a = new StoogeSort(array, 0, array.length - 1);
+            CombSort a = new CombSort(array);
             long start = System.nanoTime();
-            a.stoogeSort(array, 0, array.length -1);
+            a.combSort(array);
             long end = System.nanoTime();
             long time = end - start;
             long operations = a.getIterations();
