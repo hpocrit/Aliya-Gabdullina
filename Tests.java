@@ -1,15 +1,18 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Tests {
     public static void main(String[] args) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("result.txt", true));
+        BufferedReader reader = new BufferedReader(new FileReader("inputData.txt"));
 
-        for (int j = 0; j < 200; j++) {
-            int[] array = new int[(int) (100 + Math.random()*5000)];
-            for (int i = 0; i < array.length; i++) {
-                array[i] = (int) (Math.random() * 1000);
+        for (int i = 0; i < 100; i++) {
+            String[] array1 = null;
+            String s;
+            s = reader.readLine();
+            array1 = s.split(" ");
+            int[] array = new int[array1.length];
+            for (int j = 0; j < array.length; j++){
+                array[j] = Integer.parseInt(array1[j]);
             }
             CombSort a = new CombSort(array);
             long start = System.nanoTime();
@@ -20,10 +23,10 @@ public class Tests {
 
             writer.write(array.length + "." + time+"." + operations + "\n");
             writer.flush();
+
         }
 
         writer.flush();
         writer.close();
-
     }
 }
